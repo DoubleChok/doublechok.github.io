@@ -1,1 +1,84 @@
-"Hello World"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+  <meta http-equiv="keywords" content="web hosting, hosting, online services, domain names, domains" />
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+  <meta http-equiv="description" content="web hosting, hosting, online services, domain names, domains" />
+  <link href="/notes/css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+<title>DoubleChok's official website</title>
+
+  <style>
+  body {background-color:#000000;}
+  span {color:#FFFFFF; position:relative; top:-10px; left:46px; font-family:sans-serif; text-align:center; font-size:0.6em; opacity:0.5;}
+  #draggable {width:150px; height:150px; position:absolute; border-radius:0.5em; border: 1px solid #FF0000; padding: 0.5em;}
+  #original {width:20px; height:auto; position:relative; top:-165px; left:155px; color:#FFFFFF; opacity:0.3;}
+  .toggler { width:auto; height:900px; }
+  #effect {position: relative;}
+  </style>
+  
+<script>
+$(function() {
+  // drag effect
+  $( "#draggable" ).draggable();
+  
+  $(function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = "scale";
+ 
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 0 };
+      } 
+      
+      // run the effect
+      $( "#effect" ).effect( selectedEffect, options, 500, callback );
+    };
+ 
+    // callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
+      }, 0 );
+    };
+ 
+    // set effect from select menu value
+    $( "#draggable" ).click(function() {
+      runEffect();
+      return false;
+    });
+  });
+});
+</script>
+
+
+</head>
+<body>
+
+  <div class="toggler">
+    <div  id="draggable" style="left:48%; top:292px; padding:10px 0px 0px 0px;">
+      <img id="effect" src="http://s29.postimg.org/8om5buqpf/db_Logo.png"/>
+      <div id="original">&reg;</div>
+      <span>Drag or click</span>
+    </div>
+  </div>
+  
+  <span style="position:absolute; align:center; left:47%; top:10%; font-size:5em; font-family:sans-serif; color:#333333;"><strong>pure 3D</strong></span>
+  
+ 
+       
+        
+        
+        
+</body>
+</html>
